@@ -56,6 +56,22 @@
     100% { background-position: 200% 0%; }
   }
 
+  /* Hero logo floating animation */
+  .logo-float {
+    animation: logo-float 4s ease-in-out infinite;
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.35));
+    will-change: transform;
+  }
+
+  @keyframes logo-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-float { animation: none; }
+  }
+
   /* Stripe separator */
   .stripe-bar {
     height: 12px;

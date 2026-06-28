@@ -184,9 +184,7 @@ function Hero({ onNav }: { onNav: (id: string) => void }) {
             Via Garibaldi 76 · Cagliari
           </p>
           <div className="flex justify-center mb-6">
-            <div className="w-44 h-44 sm:w-52 sm:h-52 rounded-full bg-otto-purple flex items-center justify-center shadow-2xl">
-              <OttoLogo height={88} className="px-2" />
-            </div>
+            <OttoLogo height={170} className="logo-float" />
           </div>
           <p className="font-sans font-800 text-xl sm:text-2xl md:text-3xl text-white uppercase tracking-widest mb-4">
             Il drink che ti segue
