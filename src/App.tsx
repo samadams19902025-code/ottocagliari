@@ -43,8 +43,8 @@ function Reveal({ children, className = '' }: { children: React.ReactNode; class
 // ─── Logo ───────────────────────────────────────────────────────────────────
 // Logo OttO ufficiale (wordmark "otto" bianco). Usato bianco su sfondi scuri/colorati.
 
-function OttoLogo({ height = 36, className = '' }: { height?: number; className?: string }) {
-  return (
+function OttoLogo({ height = 36, className = '', badge = false }: { height?: number; className?: string; badge?: boolean }) {
+  const img = (
     <img
       src="/otto-logo.png"
       alt="OttO"
@@ -52,6 +52,15 @@ function OttoLogo({ height = 36, className = '' }: { height?: number; className?
       className={`w-auto ${className}`}
       draggable={false}
     />
+  );
+  if (!badge) return img;
+  return (
+    <div
+      className="rounded-full bg-otto-purple flex items-center justify-center shadow-lg shrink-0"
+      style={{ width: height * 2, height: height * 2 }}
+    >
+      {img}
+    </div>
   );
 }
 
@@ -91,7 +100,7 @@ function Header({ onNav }: { onNav: (id: string) => void }) {
           className="hover:opacity-80 transition-opacity flex items-center"
           aria-label="OttO home"
         >
-          <OttoLogo height={34} />
+          <OttoLogo height={22} badge className="px-1.5" />
         </button>
 
         {/* Desktop nav */}
@@ -624,7 +633,7 @@ function Footer() {
   return (
     <footer className="py-10 px-6 text-center" style={{ backgroundColor: '#2A2A2A' }}>
       <div className="flex justify-center mb-3">
-        <OttoLogo height={40} />
+        <OttoLogo height={30} badge className="px-1.5" />
       </div>
       <p className="font-sans font-600 text-sm text-white/60 uppercase tracking-widest mb-4">
         Il drink che ti segue · Cagliari
