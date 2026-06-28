@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --otto-purple: #7B4FA0;
+  --otto-yellow: #F5C842;
+  --otto-blue: #5BB8D4;
+  --otto-coral: #E8836B;
+  --otto-orange: #E8812A;
+  --otto-green: #6BC5A0;
+  --otto-white: #FFFFFF;
+  --otto-charcoal: #2A2A2A;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #FFFFFF;
+    color: #2A2A2A;
+    font-family: 'Nunito', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .font-script {
+    font-family: 'Pacifico', cursive;
+  }
+
+  /* Hero animated vertical stripes */
+  .hero-stripes {
+    background: linear-gradient(
+      to right,
+      var(--otto-yellow) 0%,
+      var(--otto-yellow) 16.66%,
+      var(--otto-blue) 16.66%,
+      var(--otto-blue) 33.33%,
+      var(--otto-coral) 33.33%,
+      var(--otto-coral) 50%,
+      var(--otto-green) 50%,
+      var(--otto-green) 66.66%,
+      var(--otto-orange) 66.66%,
+      var(--otto-orange) 83.33%,
+      var(--otto-purple) 83.33%,
+      var(--otto-purple) 100%
+    );
+    background-size: 200% 100%;
+    animation: stripes-shift 12s linear infinite;
+  }
+
+  @keyframes stripes-shift {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
+  }
+
+  /* Stripe separator */
+  .stripe-bar {
+    height: 12px;
+    background: linear-gradient(
+      to right,
+      var(--otto-yellow) 0%,
+      var(--otto-yellow) 16.66%,
+      var(--otto-blue) 16.66%,
+      var(--otto-blue) 33.33%,
+      var(--otto-coral) 33.33%,
+      var(--otto-coral) 50%,
+      var(--otto-green) 50%,
+      var(--otto-green) 66.66%,
+      var(--otto-orange) 66.66%,
+      var(--otto-orange) 83.33%,
+      var(--otto-purple) 83.33%,
+      var(--otto-purple) 100%
+    );
+  }
+
+  /* Reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 700ms ease-out, transform 700ms ease-out;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Card hover */
+  .drink-card {
+    transition: transform 300ms ease, box-shadow 300ms ease;
+  }
+  .drink-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+  }
+
+  /* Focus visible */
+  *:focus-visible {
+    outline: 3px solid var(--otto-yellow);
+    outline-offset: 3px;
+  }
+}
